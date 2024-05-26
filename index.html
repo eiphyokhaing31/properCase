@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          background-color: skyblue;
+        }
+        .container {
+          margin: 50px auto;
+          padding: 40px;
+          border-radius: 5px;
+          border: 1px solid rgb(130, 16, 16);
+          width: 400px;
+          height: auto;
+          background-color: aliceblue;
+        }
+        .text {
+          border-radius: 5px;
+          border: 1px solid rgb(130, 16, 16);
+          outline: none;
+        }
+        .con {
+          margin-bottom: 50px;
+          display: flex;
+          justify-content: space-between;
+        }
+        button {
+          background-color: rgb(130, 16, 16);
+          border: rgb(130, 16, 16);
+          color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+          <h2>Change string in Propercase!</h2>
+          <div class="con">
+            <input
+              type="text"
+              id="text"
+              class="text"
+              placeholder="Enter some text"
+            />
+            <button id="btn">Click</button>
+          </div>
+          <div id="output"></div>
+        </div>
+      </div>
+    </body>
+    <script>
+      function properCase(sentence) {
+        let words = sentence.toLowerCase().split(" ");
+        for (let i = 0; i < words.length; i++) {
+          words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        }
+        return words.join(" ");
+      }
+  
+      const button = document.getElementById("btn");
+      const outputElement = document.getElementById("output");
+      button.addEventListener("click", function () {
+        const inputText = document.getElementById("text").value;
+        const result = properCase(inputText);
+        outputElement.textContent = result;
+      });
+    </script>
+</body>
+</html>
